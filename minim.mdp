@@ -1,0 +1,18 @@
+; minim.mdp
+integrator              = steep
+nsteps                  = 10000
+emtol                   = 100
+nstenergy               = 500 
+nstlog                  = 500
+
+cutoff-scheme           = Verlet
+coulombtype             = PME
+rcoulomb                = 0.9
+vdwtype                 = Cut-off
+vdw-modifier            = force-switch
+rvdw                    = 0.9
+rvdw-switch             = 0.8
+DispCorr                = EnerPres
+constraints             = all-bonds
+constraint-algorithm   = LINCS
+lincs-iter             = 6
