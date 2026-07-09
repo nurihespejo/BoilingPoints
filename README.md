@@ -20,3 +20,5 @@ Iterates through all generated compounds, adds a 3.0 nm buffer box, and performs
 Uses PackMol to pack the minimized molecule into the calculated 1/8th simulation box. Afterward, it performs a second energy minimization on the packed system to resolve any steric clashes.
 ### 4. Production Setup (3_production.sh)
 Takes the minimized packed box and replicates it 2x2x2 using gmx genconf to reach the final ~15,000 atom target. It creates index groups splitting the molecules into two halves, and sets up individual production directories for multiple temperatures (300K, 400K, 500K), automatically adjusting the sim.mdp parameters.
+### 5. Trajectory Analysis (4_analysis.sh)
+Once the production simulations are finished, this script extracts the relevant physical properties (Coulomb interactions, Lennard-Jones interactions, Density, Volume, and Heat Capacity) from the GROMACS .edr files and compiles them into a single analysis_results.csv file, ready for Machine Learning training.
