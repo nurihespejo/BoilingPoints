@@ -13,7 +13,7 @@ To reproduce this workflow, you need the following software installed:
 The simulation setup is fully automated and divided into sequential scripts. 
 
 ### 1. System Setup (0_initial.py)
-Reads the input Excel file (`data/G234_Marenostrum.xlsx`) containing SMILES and molecular weights. It uses the OpenFF 2.0.0 force field and Gasteiger charges to generate GROMACS topologies. It calculates the required box size for ~15,000 atoms, targeting an initial 1/8th box for PackMol.
+Reads the input Excel file (`TrainingDataset.xlsx`) containing SMILES and molecular weights. It uses the OpenFF 2.0.0 force field and Gasteiger charges to generate GROMACS topologies. It calculates the required box size for ~15,000 atoms, targeting an initial 1/8th box for PackMol.
 ### 2. Single Molecule Minimization (1_minimSingle.sh)
 Iterates through all generated compounds, adds a 3.0 nm buffer box, and performs an energy minimization on the isolated molecule to prepare it for packing.
 ### 3. Box Packing & Minimization (2_packmolMin.sh)
