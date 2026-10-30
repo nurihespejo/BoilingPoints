@@ -1,0 +1,21 @@
+# Run cross-validation during model training
+run_cv: True  # Set to True to enable cross-validation, False to disable
+
+# Number of inner cross-validation splits
+n_inner_cv_splits: 3
+
+# Number of outer cross-validation splits
+n_outer_cv_splits: 4
+
+# Number of threads used for model training
+n_threads: 2
+
+# Number of threads used for Optuna optimization
+n_threads_optuna: 2
+
+# Number of Optuna optimization trials
+n_trials_optuna: 50
+
+# Supported options: "Plain" or "Ordered" (can take long time)
+boosting_type: "Plain"
+

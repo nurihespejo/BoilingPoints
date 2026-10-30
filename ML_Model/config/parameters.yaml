@@ -1,0 +1,24 @@
+id_col: "Compound No"
+smiles_col: "smiles"
+maccs_col: "maccs"
+fp_counts_col: "fp_counts"
+phys_chem_descriptors_col: "phys_chem_descriptors"
+feature_columns:
+  - "HofVap_300K"
+  - "Solubility300K"
+  - "SpHeatCap500K"
+prediction_columns:
+  - "BoilingPoint"
+feature_selection_type: "catboost"
+cv_groups: null
+groupTanimotoSimilarity: 0.65
+model_config: 65
+export_dir: "./data/results/export"
+defaults:
+  - _self_
+  - optuna: optuna
+  - model: model
+hydra:
+  output_subdir: null
+  run:
+    dir: .

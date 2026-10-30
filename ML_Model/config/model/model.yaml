@@ -1,0 +1,28 @@
+# specify model specific settings.
+
+# model_alogrithm defines the 'base' model to be used.
+# Either catboost or lasso (default:catboost)
+model_alogrithm: "catboost"
+
+# Specify the type of model to build
+# Supported options: "classification" or "regression"
+model_type: "regression"  # Use regression for continuous target variables
+
+# Supported options: "Plain" or "Ordered" (can take long time)
+#boosting_type: "Ordered"
+
+boosting_type: "Plain"
+
+# Dataframe has been sort by time (used by catboost)
+has_time: False
+
+# Specify the type of target variable(s)
+# Supported options: "single_target" or "multi_target"
+target_type: "single_target"  # Handle multiple target variables
+
+# is_time_ordered TODO, duplicate?!
+# Log level for CatBoost
+# Supported options: ["Silent", "Verbose", "Info", "Debug"]
+catboost_log: "Silent"
+# Number of trees in the CatBoost model
+n_trees_model: 1000
