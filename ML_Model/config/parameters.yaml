@@ -1,23 +1,59 @@
-id_col: "Compound No"
-smiles_col: "smiles"
-maccs_col: "maccs"
-fp_counts_col: "fp_counts"
-phys_chem_descriptors_col: "phys_chem_descriptors"
+# Specify the column names for the input data
+id_col: "Compound No"  # Column containing IUPAC names
+smiles_col: "smiles"  # Column containing SMILES representations
+maccs_col: "maccs"  # Column containing MACCS fingerprints
+fp_counts_col: "fp_counts"  # Column containing  fingerprints
+phys_chem_descriptors_col: "phys_chem_descriptors"  # Column containing physical and chemical descriptors
+
+# Specify the feature columns to be used in modeling
 feature_columns:
-  - "HofVap_300K"
-  - "Solubility300K"
-  - "SpHeatCap500K"
+  - "CohE_300K" 
+  - "HeatVap_300K"
+  - "Solubility300K" 
+  - "Cp_300K"  
+  - "Density_300K"
+  - "CohE_400K"
+  - "HeatVap_400K"
+  - "Solubility400K"
+  - "Cp_400K" 
+  - "Density_400K"
+  - "CohE_500K"
+  - "HeatVap_500K"
+  - "Solubility500K"
+  - "Cp_500K"
+  - "Density_500K"
+ 
+# Specify the columns used for prediction
+# - For single-target prediction, use one column.
+# - For multi-target prediction, use multiple columns.
 prediction_columns:
-  - "BoilingPoint"
-feature_selection_type: "catboost"
+  - "BoilingPoint"  # Experimental data for single-target or one of the targets in multi-target
+
+# Specify the feature selection method
+# Supported options: "catboost" or "permutation"
+feature_selection_type: "catboost"  # Utilize CatBoost for feature selection
+
+# defines the column containing cluster labels used for cross validation (default= derive from structure)
 cv_groups: null
+
+# tanimoto similarity threshold for sphere exclusion clustering. Used if 'cv_groups' is null
 groupTanimotoSimilarity: 0.65
+
+# Specify the model flags: 65 == ModelFlag.PREDICT | ModelFlag.UNCERTAINTY
+# Use this settings in case no explainability and whatsoever is not required, improves training time
 model_config: 65
+
+
+# Directory for exporting results
 export_dir: "./data/results/export"
+# --- It is not necessary to modify the underlying part ---
+# Load configurations from "other" folders like "optuna" and "model"
 defaults:
   - _self_
   - optuna: optuna
   - model: model
+
+# Disable Hydra built-in logging system
 hydra:
   output_subdir: null
   run:
