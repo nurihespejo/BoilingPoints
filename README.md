@@ -1,6 +1,6 @@
 # Molecular Dynamics Workflow for Boiling Point Prediction
 
-This repository contains the full computational pipeline used to generate, minimize, and run molecular dynamics simulations in GROMACS for boiling point prediction.
+This repository contains the full computational pipeline used to generate, minimize, and run molecular dynamics simulations in OpenFF/GROMACS workflow for boiling point prediction. The OPLS4 workflow reported in the paper was run using Schrödinger's Materials Science Suite (Desmond), which requires a commercial license. The same ML training pipeline and configuration apply; only the force field and simulation engine used to generate the input descriptors differ.
 
 ## Prerequisites
 To reproduce this workflow, you need the following software installed:
