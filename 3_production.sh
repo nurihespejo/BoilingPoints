@@ -53,7 +53,7 @@ EOF
         cp -r prod_base "prod_${T}K"
         cd "prod_${T}K"
 
-        # Copy and edit sim.mdp
+        # Copy and edit grompp.mdp
         cp ../../../../grompp.mdp grompp.mdp
         sed -i "s/\(ref-t\s*=\s*\)[0-9.]*/\1$T.00/" grompp.mdp
         sed -i "s/\(gen_temp\s*=\s*\)[0-9.]*/\1$T/" grompp.mdp
